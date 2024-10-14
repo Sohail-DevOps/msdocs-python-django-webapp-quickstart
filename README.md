@@ -26,3 +26,53 @@ For deployment to production, create an app setting, `SECRET_KEY`. Use this comm
 ```shell
 python -c 'import secrets; print(secrets.token_hex())'
 ```
+
+
+
+
+
+===========================================Here is the Step by Step Guide for Django Application Deployment on Azure App Service===================
+Django application
+git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart
+Go to the application folder:
+cd msdocs-python-django-webapp-quickstart
+Create a virtual environment for the app for windows:
+py -m venv .venv
+.venv\scripts\activate
+Create a virtual environment for the app for macOS/Linux:
+python3 -m venv .venv
+source .venv/bin/activate
+Install the dependencies:
+pip install -r requirements.txt
+Run the app:
+python manage.py runserver
+Browse to the sample application at http://localhost:8000 in a web browser.
+Create a web app in Azure
+
+1.	Enter app services in the search bar at the top of the Azure portal.
+2.	Select the item labeled App Services under the Services heading on the menu that appears below the search bar.
+3.	On the App Services page, select + Create, then select + Web App from the drop-down menu.
+4.	On the Create Web App page, fill out the form as follows.
+1.	Resource Group → Select Create new and use a name of msdocs-python-webapp-quickstart.
+2.	Name → msdocs-python-webapp-quickstart-XYZ where XYZ is any three random characters. This name must be unique across Azure.
+3.	Runtime stack → Python 3.9.
+4.	Region → Any Azure region near you.
+5.	App Service Plan → Under Pricing plan, select Explore pricing plans to select a different App Service plan.
+The App Service plan controls the amount of resources (CPU/memory) that are available to your app and the cost of those resources.
+
+For this example, under Dev/Test, select the Basic B1 plan. The Basic B1 plan will incur a small charge against your Azure account but is recommended for better performance over the Free F1 plan.
+When finished, select Select to apply your changes.
+On the main Create Web App page, select the Review + create at the bottom of the screen.
+
+This will take you to the Review page. Select Create to create your App Service.
+
+Deploy Your Code to Azure App Service
+1.	Set Up Local Git Deployment:
+o	In the Azure portal, go to your App Service.
+o	In the left menu, find "Deployment Center" under Settings.
+o	Select "Local Git" as the source.
+o	Click on "Continue" and then "Finish". Note the Git remote URL provided by Azure.
+Or you can use GitHub by the given instructions at Azure Portal 
+
+
+
